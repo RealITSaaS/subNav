@@ -1,0 +1,268 @@
+/*Base SubNav Positioning*/
+#wm-subnav{
+  display:block !important;
+  width:100%;
+  position:relative;
+  height:auto;
+  box-sizing:border-box;
+  padding:17px;
+  padding-left:var(--headerPaddingLeft);
+  padding-right:var(--headerPaddingRight);
+  transition:all .1s ease-out;
+}
+.cloned-subnav{
+  display:block !important;
+}
+
+#wm-subnav .header-nav-wrapper{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  width:100%;
+  box-sizing:border-box;
+}
+
+/*Base Subnav Styles*/
+#wm-subnav .header-nav-item{
+  text-align:center;
+  position:relative;
+  margin-left:.8vw;
+  margin-right:.8vw;
+}
+#wm-subnav .header-nav-item:last-of-type{
+  margin-right:0px;
+}
+#wm-subnav .header-nav-item:first-of-type{
+  margin-left:0px;
+}
+.hide-link{
+  display:none !important;
+}
+.header--menu-open #wm-subnav{
+  display:none;
+}
+#wm-subnav h1, #wm-subnav h2, #wm-subnav h3, #wm-subnav h4{
+  margin-block-start:0px !important;
+  margin-block-end:0px !important;
+}
+.mobile-subnav h1, .mobile-subnav h2, .mobile-subnav h3, .mobile-subnav h4, .mobile-subnav p {
+  display:none;
+}
+
+
+/*Position Top*/
+body.tweak-subnav-position-top #wm-subnav{
+  background:white;
+}
+body.tweak-subnav-position-top #wm-subnav a{
+  color:black;  
+}
+body.tweak-subnav-position-top #wm-subnav{
+  width:100vw;
+  left:-50vw;
+  margin-left:50%;
+  margin-bottom:var(--headerPaddingBottom) !important;
+}
+body.tweak-subnav-position-top:not(.header--menu-open) .header-announcement-bar-wrapper{
+  padding-top:0px !important;
+}
+
+/*On Fixed Scrollback Header*/
+body.tweak-subnav-position-top .header .header-announcement-bar-wrapper.shrink {
+  padding-top: 0vw !important;
+}
+
+/*Position Center Left*/
+@media (min-width: 799px){
+  body.tweak-subnav-position-center-left .header-title-nav-wrapper{
+    flex: 1 0 100%;
+  }
+}
+body.tweak-subnav-position-center-left #wm-subnav{
+  order:1;
+  width:100%;
+  background:transparent;
+  padding-bottom:0px;
+  padding-right:0px;
+  padding-left:0px;
+  padding-top:0px;
+  margin-left:0px !important;
+}
+body.tweak-subnav-position-center-left .header-title-nav-wrapper .header-title{
+  order:2; 
+  width:auto;
+  text-align: center;
+}
+body.tweak-subnav-position-center-left .header-title-nav-wrapper .header-nav{
+  order:3;  
+  flex: 1 1 100%;
+}
+body.tweak-subnav-position-center-left .header-nav .header-nav-wrapper{
+  text-align:right;
+  flex: 1 0 100%;
+} 
+body.tweak-subnav-position-center-left .header-layout-nav-right .header-nav{
+  padding-left:0px;
+}
+
+/*Position Center Right*/
+@media (min-width: 799px){
+  body.tweak-subnav-position-center-right .header-title-nav-wrapper{
+    flex: 1 0 100%;
+  }
+}
+body.tweak-subnav-position-center-right #wm-subnav{
+  order:3;
+  width:100%;
+  background:transparent;
+  padding-bottom:0px;
+  padding-right:0px;
+  padding-left:0px;
+  padding-top:0px;
+  margin-left:0px !important;
+}
+body.tweak-subnav-position-center-right #wm-subnav .header-nav-wrapper{
+  justify-content:flex-end;
+  flex: 1 0 100%;
+}
+body.tweak-subnav-position-center-right .header-title-nav-wrapper .header-title{
+  order:2; 
+  text-align:center;
+  width:auto;
+}
+body.tweak-subnav-position-center-right .header-title-nav-wrapper .header-nav{
+  order:1;
+  flex: 1 1 100%;
+  padding-left:0px;
+  text-align:left;
+}
+
+/*Position Bottom*/
+body.tweak-subnav-position-bottom #wm-subnav{
+  background:white;
+}
+body.tweak-subnav-position-bottom #wm-subnav a{
+  color:black;  
+}
+body.tweak-subnav-position-bottom #wm-subnav{
+  width:100vw;
+  left:-50vw;
+  margin-left:50%;
+  bottom: 0px;
+}
+body.tweak-subnav-position-bottom .header-inner{
+  padding-bottom: var(--headerPaddingTop);
+}
+body.tweak-subnav-position-bottom .header-announcement-bar-wrapper{
+  padding-bottom:0px !important;
+}
+body.tweak-subnav-position-bottom [data-sticky="true"].mobile-subnav{
+  display:none;
+}
+/*On Fixed Scrollback Header*/
+body.tweak-subnav-position-bottom .header .header-announcement-bar-wrapper.shrink {
+  padding-bottom: 0vw !important;
+}
+
+body.tweak-subnav-position-bottom.tweak-sticky-subnav.tweak-fixed-header #header.shrink[style="transform: translateY(-100%);"]{
+  transform: translateY(calc(-1 * var(--wmHeaderHeight) - var(--headerPaddingBottom) - var(--headerPaddingTop) - var(--announcementBarHeight))) !important;
+}
+body.tweak-subnav-position-bottom.tweak-sticky-subnav:not(.tweak-fixed-header) .stick{
+  position: fixed;
+  top: calc( -1 * var(--wmHeaderHeight) - var(--headerPaddingBottom) - var(--headerPaddingTop) - var(--announcementBarHeight));
+}
+@media(max-width:799px){
+  body.tweak-subnav-position-bottom .header-inner{
+    padding-bottom: 0px !important;
+    padding-top: 0px !important;
+  }
+  body.tweak-subnav-position-bottom .header-announcement-bar-wrapper {
+    padding-bottom: 6vw !important;
+    padding-top: 6vw !important;
+  }
+}
+
+
+
+
+/*Adding A Product Title*/
+#wm-subnav h1, #wm-subnav h2, #wm-subnav h3, #wm-subnav h4, #wm-subnav p{
+  flex-grow:1;
+}
+
+/*Mobile Styles*/
+#wm-mobile-subnav.mobile-subnav{
+  display:flex;
+  flex-direction:column;
+  margin-top:2rem;
+  margin-bottom:2rem;
+}
+body.header--menu-open #wm-subnav{
+  display:none !important;
+}
+
+#header .header-inner{
+  z-index:3;
+}
+.header-menu.header-menu--folder-list{
+  padding-top:0px !important;
+}
+.mobile-subnav a.wm-subnav-item{
+  margin-top:.5rem;
+  font-size: 5vmin;
+}
+
+
+.secondary-nav-dropdown{
+  display:none;
+}
+.secondary-nav-dropdown.open-dropdown{
+  display:block;
+}
+#wm-subnav .secondary-nav-dropdown .header-nav-item{
+  margin:5px 0px !important;
+  padding-left:17px !important;
+  text-align:left;
+}
+.secondary-nav-dropdown-icon{
+  display:none;
+  width:2rem;
+  cursor:pointer;
+  transform: rotate(0deg);
+  transition: transform 140ms ease-in-out;
+}
+.secondary-nav-dropdown-icon.opened{
+  transform: rotate(180deg);
+  transition: transform 140ms ease-in-out;
+}
+
+.secondary-nav-dropdown-icon svg{
+  width:100%;
+  height:100%;
+}
+
+
+@media (max-width:799px){
+ body.tweak-subnav-position-center-right #wm-subnav, body.tweak-subnav-position-center-left #wm-subnav{
+    display:none !important;
+  }
+}
+
+@media(max-width:799px){
+  #wm-subnav{
+    display:none !important
+  }
+  #header .header-announcement-bar-wrapper{
+    padding-top:var(--headerPaddingBottom) !important;
+  }
+  .secondary-nav-dropdown-icon{
+    display:block;
+  }
+  .cloned-subnav:not(.mobile-subnav) .header-nav-wrapper .header-nav-item a:not(.cta){
+    display:none;
+  }
+
+  .header-menu-nav-folder > .header-menu-nav-folder-content{
+    margin-top:100px;
+  }
+}
