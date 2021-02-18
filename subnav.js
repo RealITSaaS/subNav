@@ -2,7 +2,7 @@ $(function(){
   "use strict";
   if ($('[data-wm-plugin="subnav"]').length) {
 
-    $('head').prepend('<link href="https://github.com/RealITSaaS/subNav/blob/main/subnav.css" rel="stylesheet">');
+    $('head').prepend('<link href="https://github.com/RealITSaaS/subNav/edit/main/subnav.css" rel="stylesheet">');
     
     function SubNavBlock(subNav){
       let thisObj = this;
@@ -19,14 +19,12 @@ $(function(){
           headerPaddingBottom,
           mainHeaderHeight,
           subHeaderHeight,
-          announcementBarHeight,
           linkSpacing,
           scrollPos,
           downArrowSvg,
-          dropdownNav,
+          dropdownNav,         
           currentUrl = window.location.pathname;
-      console.log(currentUrl);
-
+      
       if ( isSticky === "true") {
         $('body').addClass('tweak-sticky-subnav');
       }
@@ -39,8 +37,6 @@ $(function(){
       $(thisObj.subNav).wrapInner('<nav class="header-nav-wrapper"></nav>');
       
       /*Get Links*/
-      if (linkSetup === "simple") {
-        /*Simple Nav*/
         $('a[href="/secondary-nav"]').parent().addClass('hide-link');
         links = $('.header-nav-folder-title[href="/secondary-nav"]').first().next();
         $(links).find('.header-nav-folder-item').each(function(){
@@ -49,7 +45,6 @@ $(function(){
           let newLink = '<a href="' + linkUrl + '">' + linkText + '</a>';
           $(thisObj.subNav).find('.header-nav-wrapper').append(newLink)
         });
-      } else {}
       
       $(thisObj.subNav).find('a').addClass('wm-subnav-item fadeIn');
       $(thisObj.subNav).find('a.wm-subnav-item').wrap('<div class="header-nav-item"></div>');
@@ -81,14 +76,12 @@ $(function(){
       }) 
       function closeSecondaryNavDropdown(){
         $('.secondary-nav-dropdown').removeClass('open-dropdown');
-        $('.secondary-nav-dropdown-icon').removeClass('opened');        
       }
       function openSecondaryNavDropdown(){
         $('.secondary-nav-dropdown').addClass('open-dropdown'); 
-        $('.secondary-nav-dropdown-icon').addClass('opened');
       }
 
-      /*Subnav Positioning Options*/
+/*Subnav Positioning Options*/
       // Above Header
       if (subNavPos === "top-right"){
         $('#header .header-announcement-bar-wrapper').prepend($(thisObj.subNav));
@@ -146,14 +139,12 @@ $(function(){
         headerPaddingBottom = $('#header .header-announcement-bar-wrapper').css('padding-bottom');
         mainHeaderHeight = $('#header .header-inner').outerHeight();
         subHeaderHeight = $('#wm-subnav').outerHeight();
-        announcementBarHeight = $('.sqs-announcement-bar-dropzone').outerHeight();
         $(':root').css('--headerPaddingLeft', headerPaddingLeft);
         $(':root').css('--headerPaddingRight', headerPaddingRight); 
         $(':root').css('--headerPaddingTop', headerPaddingTop);
         $(':root').css('--headerPaddingBottom', headerPaddingBottom);
         $(':root').css('--wmHeaderHeight', mainHeaderHeight + "px");
         $(':root').css('--wmSubNavHeight', subHeaderHeight + "px");
-        $(':root').css('--announcementBarHeight', announcementBarHeight + "px" );
       }
       window.addEventListener('resize', function(){
         closeSecondaryNavDropdown();
