@@ -2,7 +2,7 @@ $(function(){
   "use strict";
   if ($('[data-wm-plugin="subnav"]').length) {
 
-    $('head').prepend('<link href="https://assets.codepen.io/3198845/WMSecondNav92220v1-4.css" rel="stylesheet">');
+    $('head').prepend('<link href="https://github.com/RealITSaaS/subNav/blob/main/subnav.css" rel="stylesheet">');
     
     function SubNavBlock(subNav){
       let thisObj = this;
